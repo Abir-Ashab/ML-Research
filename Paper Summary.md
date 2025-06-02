@@ -6,9 +6,9 @@ The paper introduces a **medical imaging dataset** made from brain scans of **67
 * **Secondary brain tumors**: Called **Brain Metastases (BMs)**. These come from other body parts (like lung or breast cancer) and spread to the brain.
 
 Now here's the challenge:
-- On **MRI scans**, these two tumor types look very **similar**.
-- But they **need different treatments**.
-So, **how do we tell them apart without surgery or biopsy**? This is where **AI and radiomics** come in.
+- On **MRI scans**, these two tumor types look very similar.
+- But they need different treatments.
+So, how do we tell them apart without surgery or biopsy? This is where AI and radiomics come in.
 
 ---
 
@@ -205,7 +205,7 @@ This adds **context** to the image data — super useful for **training models**
 ---
 ## **Dice Score**
 
-The **Dice Score**, or **Dice Similarity Coefficient (DSC)**, is a commonly used **evaluation metric for segmentation** tasks. Dice Score tells you **how much the predicted tumor region overlaps** with the **true (ground truth) tumor region** drawn by a doctor.
+The **Dice Score**, or Dice Similarity Coefficient (DSC), is a commonly used evaluation metric for segmentation tasks. Dice Score tells you how much the predicted tumor region overlaps with the **true (ground truth) tumor region** drawn by a doctor.
 
 ### Dice Score Formula:
 
