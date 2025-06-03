@@ -5,11 +5,7 @@ The paper introduces a medical imaging dataset made from brain scans of **67 pat
 * **Primary brain tumors**: Called High-Grade Gliomas (**HGGs**). These are brain cancers that start inside the brain.
 * **Secondary brain tumors**: Called Brain Metastases (**BMs**). These come from other body parts (like lung or breast cancer) and spread to the brain.
 
-Now here's the challenge:
-- On **MRI scans**, these two tumor types look very similar.
-- But they need different treatments.
-
-So, how do we tell them apart without surgery or biopsy? This is where AI and radiomics come in.
+Now, here the challenge lies with **MRI scans**: these two tumor types look very similar. But they need different treatments. So, how do we tell them apart without surgery or biopsy? This is where AI and radiomics come in with the solution. This paper focuses on solving this problem.
 
 ## Image Modalities
 
@@ -125,7 +121,7 @@ The patient population in the MOTUM dataset consists of **67 patients** with bra
 * Good-quality MRI scans (no major motion artifacts)
 * Availability of basic clinical information (age, sex, surgery outcome, molecular data) 
 
-All the patients divided into two major groups:
+All the patients were divided into two major groups:
 
 **1. High-Grade Gliomas (HGGs) – 29 patients**
 
@@ -153,9 +149,9 @@ These are secondary tumors that spread to the brain from other body parts.
 ###  Tumor Segmentation
 
 1. **Manual annotation** using **ITK-SNAP** tool for first 30 patients.
-2. Used these to **train a 2D deep learning model (nnU-Net)**.
-3. Applied model to the remaining 37 patients.
-4. Doctors **visually checked and corrected** the segmentations.
+2. Used these to train a 2D deep learning model (**nnU-Net**).
+3. Applied the model to the remaining 37 patients.
+4. Doctors visually checked and corrected the segmentations.
 
 They avoided 3D models due to:
 
@@ -184,7 +180,7 @@ This adds **context** to the image data — super useful for **training models**
 
 ## **Radiomic Feature Extraction**
 
-**Radiomics** is the process of turning medical images (like MRIs) into **numbers** that describe what the tumor looks like. These numbers are called **features**. They help in understanding a tumor's **size**, **brightness**, and **texture patterns**, which can be used for diagnosis, prediction, or machine learning.
+**Radiomics** is the process of turning medical images (like MRIs) into **numbers** that describe what the tumor looks like. These numbers are called **features**. They help in understanding a tumor's size, brightness, and texture patterns, which can be used for diagnosis, prediction, or machine learning.
 
 This dataset used a tool called **PyRadiomics** to extract these features. Here is a flow of how it is done:
 ![alt text](flow.png)
@@ -205,13 +201,13 @@ These describe the **size** and **3D shape** of the tumor.
 | Flatness     | How flat or thin it is                                          |
 | ... (others) | Variations related to size and shape complexity                 |
 
-These features are **geometry-based** and don’t depend on brightness.
+These features are geometry-based and don’t depend on brightness.
 
 ---
 
 ### 2. **Intensity Features (18)**
 
-These describe the **brightness and variation of pixel values** inside the tumor.
+These describe the **brightness and variation** of pixel values inside the tumor.
 
 | Feature            | What it means                                              |
 | ------------------ | ---------------------------------------------------------- |
@@ -223,21 +219,21 @@ These describe the **brightness and variation of pixel values** inside the tumor
 | Entropy            | How random the brightness is (more random = more entropy)  |
 | ... (others)       | Different ways to measure pixel brightness distribution    |
 
-These are also called **first-order features** — they don’t consider the position of pixels, just their values.
+These are also called first-order features — they don’t consider the position of pixels, just their values.
 
 ---
 
 ### 3. **Texture Features (76 total)**
 
-These are the most important and complex. Texture features describe **patterns in the image**, based on how **pixel values are arranged**.
+These are the most important and complex. Texture features describe **patterns** in the image, based on how pixel values are arranged.
 
 Let’s explain each texture group in detail.
 
 ---
 
-#### 3.1 GLCM – **Gray-Level Co-Occurrence Matrix** (24 features)
+#### 3.1 GLCM – Gray-Level Co-Occurrence Matrix (24 features)
 
-**Purpose:** Measures **how often pairs of pixel values** appear next to each other.
+**Purpose:** Measures how often pairs of pixel values appear next to each other.
 
 | Simple idea | Imagine checking how often a dark pixel is next to a bright one |
 | ----------- | --------------------------------------------------------------- |
@@ -258,12 +254,12 @@ Let’s explain each texture group in detail.
 
 ---
 
-#### 3.2 GLRLM – **Gray-Level Run Length Matrix** (16 features)
+#### 3.2 GLRLM – Gray-Level Run Length Matrix (16 features)
 
-**Purpose:** Looks at **runs (streaks) of the same pixel value** in a straight line.
+**Purpose:** Looks at runs (streaks) of the same pixel value in a straight line.
 
-\| Simple idea | Check how many rows have long runs of the same brightness (like 5 white pixels in a row) |
-
+| Simple idea | Check how many rows have long runs of the same brightness (like 5 white pixels in a row) |
+| ----------- | --------------------------------------------------------------- |
 **What it shows:**
 
 * **Streaks or lines** inside the tumor
@@ -279,15 +275,16 @@ Let’s explain each texture group in detail.
 
 ---
 
-#### 3.3 GLSZM – **Gray-Level Size Zone Matrix** (16 features)
+#### 3.3 GLSZM – Gray-Level Size Zone Matrix (16 features)
 
-**Purpose:** Measures **how big the connected areas are** with the same pixel value.
+**Purpose:** Measures how big the connected areas are with the same pixel value.
 
-\| Simple idea | Instead of lines, it looks at **blobs** of the same color, and their sizes |
+| Simple idea | Instead of lines, it looks at **blobs** of the same color, and their sizes |
+| ----------- | --------------------------------------------------------------- |
 
 **What it shows:**
 
-* Whether the tumor has **many small areas** or **a few large areas** of the same brightness
+* Whether the tumor has many small areas or **a few large areas** of the same brightness
 
 **Features examples:**
 
@@ -299,9 +296,9 @@ Let’s explain each texture group in detail.
 
 ---
 
-#### 3.4 NGTDM – **Neighboring Gray Tone Difference Matrix** (5 features)
+#### 3.4 NGTDM – Neighboring Gray Tone Difference Matrix (5 features)
 
-**Purpose:** Looks at **how different a pixel is from its neighbors**
+**Purpose:** Looks at how different a pixel is from its neighbors
 
 \| Simple idea | For each pixel, check how different it is compared to the 8 around it |
 
@@ -319,15 +316,15 @@ Let’s explain each texture group in detail.
 
 ---
 
-#### 3.5 GLDM – **Gray Level Dependence Matrix** (14 features)
+#### 3.5 GLDM – Gray Level Dependence Matrix (14 features)
 
-**Purpose:** Measures **how many pixels depend on a central pixel’s value**
+**Purpose:** Measures how many pixels depend on a central pixel’s value
 
 \| Simple idea | Group pixels that rely on the same value within a small area |
 
 **What it shows:**
 
-* How **tightly packed or spread out** similar values are
+* How **tightly**  packed or spread out similar values are
 
 **Features examples:**
 
