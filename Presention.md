@@ -183,7 +183,11 @@ This adds **context** to the image data — super useful for **training models**
 **Radiomics** is the process of turning medical images (like MRIs) into **numbers** that describe what the tumor looks like. These numbers are called **features**. They help in understanding a tumor's size, brightness, and texture patterns, which can be used for diagnosis, prediction, or machine learning.
 
 This dataset used a tool called **PyRadiomics** to extract these features. Here is a flow of how it is done:
-![alt text](flow.png)
+
+<div style="text-align: center;">
+  <img src="flow.png" height="500" width="700">
+</div>
+
 
 Total 110 features extracted. They are divided into 3 main types:
 
