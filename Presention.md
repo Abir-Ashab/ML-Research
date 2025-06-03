@@ -362,7 +362,8 @@ Let’s explain each texture group in detail.
 
 **Purpose:** Looks at how different a pixel is from its neighbors
 
-\| Simple idea | For each pixel, check how different it is compared to the 8 around it |
+| Simple idea | For each pixel, check how different it is compared to the 8 around it |
+| ----------- | --------------------------------------------------------------- |
 
 **What it shows:**
 
