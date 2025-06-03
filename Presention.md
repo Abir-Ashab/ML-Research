@@ -78,11 +78,68 @@ Without this, doctors and computer programs can’t tell for sure:
 
 ## **The MOTUM Dataset**
 
+### Header Sample For a Flair Image
+
+```bash
+sizeof_hdr      : 348
+data_type       : np.bytes_(b'')
+db_name         : np.bytes_(b'')
+extents         : 16384
+session_error   : 0
+regular         : np.bytes_(b'r')
+dim_info        : 0
+dim             : [  3 192 256  21   1   1   1   1]
+intent_p1       : 0.0
+intent_p2       : 0.0
+intent_p3       : 0.0
+intent_code     : none
+datatype        : int16
+bitpix          : 16
+slice_start     : 0
+pixdim          : [1.       0.9375   0.9375   6.750002 0.       0.       0.       0.      ]
+vox_offset      : 0.0
+scl_slope       : nan
+scl_inter       : nan
+slice_end       : 0
+slice_code      : unknown
+xyzt_units      : 10
+cal_max         : 0.0
+cal_min         : 0.0
+slice_duration  : 0.0
+toffset         : 0.0
+glmax           : 0
+glmin           : 0
+descrip         : np.bytes_(b'2203.10-dirty 2023-07-12T15:42:32+01:00')
+aux_file        : np.bytes_(b'')
+qform_code      : scanner
+sform_code      : scanner
+quatern_b       : 0.013404659
+quatern_c       : -0.23346046
+quatern_d       : 0.97189087
+qoffset_x       : 98.63871
+qoffset_y       : 117.97614
+qoffset_z       : -29.48465
+srow_x          : [-9.3576682e-01 -5.5595823e-02  8.9869924e-02  9.8638710e+01]
+srow_y          : [ 4.3860357e-02 -8.3390915e-01 -3.0680633e+00  1.1797614e+02]
+srow_z          : [  0.03637256  -0.42474803   6.0117745  -29.48465   ]
+intent_name     : np.bytes_(b'')
+magic           : np.bytes_(b'n+1')
+```
+
+Key Headers Info from the above are:
+
+* Shape: 192 x 256 x 21
+* Voxel size: 0.9375 x 0.9375 x 6.75, where they represents the voxel width (x), voxel height (y) and Slice thickness.
+* Data type: 16-bit signed integers
+* Orientation: Scanner-based affine with full transformation matrix
+* T1-weighted (T1), T1 with contrast (T1-ce), T2-weighted (T2), and FLAIR — contains 21 axial slices per patient.
+* So here is a total of 84 image slices per patient (21 slices × 4 modalities).
+
 ### Dataset Structure
 
 * Stored in **BIDS format** 
 
-```
+```bash
 motum/
 ├── derivatives/                  ← Contains pre-processed outputs (radiomics, segmentations, parameters)
 │   ├── sub-0001/
