@@ -26,9 +26,9 @@ Without this, doctors and computer programs can’t tell for sure:
 
 **2. T1-ce (with contrast)**
 ![alt text](t1-ce.png)
-* This is like taking a photo **after injecting a special dye** into the blood.
-* This dye **leaks into areas where the brain is damaged** — like active parts of a tumor.
-* These areas **light up (look white/bright)**, so it's easier to see the tumor.
+* This is like taking a photo after injecting a special dye into the blood.
+* This dye leaks into areas where the brain is damaged, like active parts of a tumor.
+* These areas light up (look white/bright), so it's easier to see the tumor.
 
 **What it shows:**
 
@@ -42,9 +42,9 @@ Without this, doctors and computer programs can’t tell for sure:
 
 **3. T2**
 ![alt text](t2.png)
-* This image is like using a filter that **shows water very clearly**.
+* This image is like using a filter that shows water very clearly.
 * Anything with **extra water**, like swelling or fluid, shows up **bright**.
-* But the problem is — **normal brain fluid also looks bright**, which can confuse things.
+* But the problem is, normal brain fluid also looks bright, which can confuse things.
 
 **Why it’s used:**
 
@@ -68,10 +68,10 @@ Without this, doctors and computer programs can’t tell for sure:
 
 | Situation        | What you’ll miss without other images                                                                     |
 | ---------------- | --------------------------------------------------------------------------------------------------------- |
-| Only using T1-ce | You’ll **miss the swelling** and parts of the tumor that don’t glow with contrast                         |
-| Only using FLAIR | You’ll **miss the active core** of the tumor and can’t be sure what's brain fluid and what's abnormal     |
-| Without T1       | You **won’t know the normal brain structure**, making it hard to judge if something is unusual            |
-| Without T2       | You **lose a second opinion** on swelling and fluid content — might make mistakes in FLAIR interpretation |
+| Only using T1-ce | You’ll miss the **swelling** and parts of the tumor that don’t glow with contrast                         |
+| Only using FLAIR | You’ll miss the **active core** of the tumor and can’t be sure what's brain fluid and what's abnormal     |
+| Without T1       | You won’t know the **normal brain structure**, making it hard to judge if something is unusual            |
+| Without T2       | You lose a **second opinion** on swelling and fluid content — might make mistakes in FLAIR interpretation |
 
 ---
 
@@ -260,6 +260,7 @@ Let’s explain each texture group in detail.
 
 | Simple idea | Check how many rows have long runs of the same brightness (like 5 white pixels in a row) |
 | ----------- | --------------------------------------------------------------- |
+
 **What it shows:**
 
 * **Streaks or lines** inside the tumor
