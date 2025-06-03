@@ -185,7 +185,7 @@ This adds **context** to the image data — super useful for **training models**
 This dataset used a tool called **PyRadiomics** to extract these features. Here is a flow of how it is done:
 
 <div style="text-align: center;">
-  <img src="flow.png" height="500" width="900">
+  <img src="flow.png" height="700" width="900">
 </div>
 
 
