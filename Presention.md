@@ -1,6 +1,7 @@
 ## **Background of the Paper**
 
-<a href="[https://www.example.com](https://www.nature.com/articles/s41597-024-03634-0)" target="_blank">A Multi-Center, Multi-Parametric MRI Dataset of Primary and Secondary Brain Tumors</a>
+**[A Multi-Center, Multi-Parametric MRI Dataset of Primary and Secondary Brain Tumors](https://www.nature.com/articles/s41597-024-03634-0)**
+
 
 The paper introduces a medical imaging dataset made from brain scans of **67 patients**. These patients have either:
 
